@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Easy Auto Girls</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      background-color: #111;
+      color: #fff;
+      padding: 30px;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 16px;
+      opacity: 0.85;
+    }
+
+    .cta-button {
+      background-color: #ff4d8f;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 18px;
+      border-radius: 12px;
+      cursor: pointer;
+      margin-top: 30px;
+      transition: background 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #ff3379;
+    }
+
+    .footer {
+      margin-top: 40px;
+      font-size: 14px;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <h1>Привет, <span id="user-name">подруга</span> 👋</h1>
+  <p>Ты в Easy Auto Girls — сервисе для девушек, у которых нет времени париться с машиной.</p>
+
+  <button class="cta-button" onclick="submit()">Хочу заботу о машине 🚗</button>
+
+  <div class="footer">
+    Нажимая на кнопку, ты запускаешь заявку на подключение к подписке
+  </div>
+
+  <script>
+    const tg = window.Telegram.WebApp;
+    tg.expand();
+
+    const user = tg.initDataUnsafe.user;
+    if (user && user.first_name) {
+      document.getElementById("user-name").textContent = user.first_name;
+    }
+
+    function submit() {
+      tg.close();
+    }
+  </script>
+</body>
+</html>
