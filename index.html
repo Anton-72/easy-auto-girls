@@ -1,74 +1,145 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Easy Auto Girls</title>
-  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;700&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Rubik', sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
       text-align: center;
-      background-color: #111;
-      color: #fff;
-      padding: 30px;
+      color: #1a1a1a;
+    }
+
+    header img {
+      width: 80px;
+      margin-top: 30px;
     }
 
     h1 {
-      font-size: 28px;
+      font-weight: 700;
+      margin: 20px 0 10px;
+    }
+
+    p.description {
+      font-weight: 500;
+      color: #666;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      font-weight: 700;
       margin-bottom: 10px;
     }
 
-    p {
-      font-size: 16px;
-      opacity: 0.85;
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      padding: 0 20px 40px;
+      justify-items: center;
     }
 
-    .cta-button {
-      background-color: #ff4d8f;
+    .button {
+      background: white;
+      padding: 15px;
+      border-radius: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.2s ease;
+      font-weight: 700;
+      color: #333;
+    }
+
+    .button:hover {
+      transform: translateY(-5px);
+    }
+
+    .button img {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 10px;
+    }
+
+    form {
+      padding: 20px;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 80%;
+      margin: 20px auto;
+    }
+
+    input, textarea, button {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-family: 'Rubik', sans-serif;
+    }
+
+    button[type="submit"] {
+      background-color: #6e49ff;
       color: white;
-      border: none;
-      padding: 15px 30px;
-      font-size: 18px;
-      border-radius: 12px;
+      font-weight: bold;
       cursor: pointer;
-      margin-top: 30px;
-      transition: background 0.3s ease;
-    }
-
-    .cta-button:hover {
-      background-color: #ff3379;
-    }
-
-    .footer {
-      margin-top: 40px;
-      font-size: 14px;
-      color: #aaa;
     }
   </style>
 </head>
 <body>
-  <h1>Привет, <span id="user-name">подруга</span> 👋</h1>
-  <p>Ты в Easy Auto Girls — сервисе для девушек, у которых нет времени париться с машиной.</p>
+  <header>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Emoji_u1f697.svg/1200px-Emoji_u1f697.svg.png" alt="Логотип">
+    <h1>Заботимся о машине для тебя</h1>
+    <p class="description">Auto Girls — сервис для девушек, которые не хотят париться с машиной</p>
+  </header>
 
-  <button class="cta-button" onclick="submit()">Хочу заботу о машине 🚗</button>
-
-  <div class="footer">
-    Нажимая на кнопку, ты запускаешь заявку на подключение к подписке
+  <h2>Выбери услугу</h2>
+  <div class="grid">
+    <div class="button">
+      <img src="https://img.icons8.com/color/96/car-wash.png" alt="Мойка">
+      Мойка
+    </div>
+    <div class="button">
+      <img src="https://img.icons8.com/color/96/tyre.png" alt="Переобувка">
+      Переобувка
+    </div>
+    <div class="button">
+      <img src="https://img.icons8.com/color/96/maintenance.png" alt="ТО">
+      ТО
+    </div>
+    <div class="button">
+      <img src="https://img.icons8.com/color/96/car-repair.png" alt="Ремонт">
+      Ремонт
+    </div>
+    <div class="button">
+      <img src="https://img.icons8.com/color/96/car-battery.png" alt="Детали">
+      Покупка деталей
+    </div>
+    <div class="button">
+      <img src="https://img.icons8.com/color/96/driver.png" alt="Трезвый водитель">
+      Трезвый водитель
+    </div>
   </div>
 
-  <script>
-    const tg = window.Telegram.WebApp;
-    tg.expand();
-
-    const user = tg.initDataUnsafe.user;
-    if (user && user.first_name) {
-      document.getElementById("user-name").textContent = user.first_name;
-    }
-
-    function submit() {
-      tg.close();
-    }
-  </script>
+  <form>
+    <input type="text" placeholder="Имя" required>
+    <input type="tel" placeholder="Телефон" required>
+    <textarea placeholder="Комментарий"></textarea>
+    <button type="submit">Оставить заявку</button>
+  </form>
 </body>
 </html>
+Commit changes
+[Обновил главную страницу]  ← это ты пишешь
+[Добавил логотип, ...]       ← можно оставить пустым
+
+[✓] Commit directly to the main branch
+
+[ Commit changes ]
